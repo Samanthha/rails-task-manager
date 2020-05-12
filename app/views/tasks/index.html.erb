@@ -2,10 +2,10 @@
 
 <ul>
   <% @tasks.each do |task| %>
-  if task.completed?
-    [] task.title
-  else
-    [X] task.title
-  <li><%= task.title %></li>
+    <% if task.completed? %>
+      <li>[x] <%= link_to task.title, task_path(task) %></li>
+    <% else %>
+      <li>[ ] <%= link_to task.title, task_path(task) %></li>
+    <% end %>
   <% end %>
 </ul>
